@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vuetodu</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!--这个one是个作用域-->
+  <div id="one">
+    <!--左边一栏-->
+    <div class="inner-left">
+      <!--上部分添加按钮-->
+      <div class="left-title">vue提醒计划
+        <!--添加函数-->
+      <div class="add-butt" v-on:click="add();save();huan()">加
+      </div>
+      </div>
+      <!--下部分list栏目-->
+      <ul class="left-column">
+        <!--v-for 遍历循环 item为项目 index为下标 value为键值 key为键名-->
+        <li class="colume-list" v-for="(item, index) in shuju"><div class="ball" v-bind:class="item.yanse"></div><input type="text" v-model="item.name" @click="huan(index);save()" v-on:blur="save()"></li>
+      </ul>
+    </div>
+    <!--右边一栏-->
+    <div class="inner-right">
+      <!--选项栏目-->
+      <div class="right-check-box" v-if="showw">
+        <input type="text" v-model="younei.name" v-bind:class="younei.yanse" v-on:blur="save()">
+        <ul class="list-color">
+          <li v-bind:class="v" v-for="v in yanse" v-on:click="younei.yanse=v;save()"></li>
+        </ul>
+        <div class="check-butt">
+          <div class="check-butt-box red" v-on:click="del(younei.id);save()">删除</div>
+          <div class="check-butt-box" v-on:click="showw=false">取消</div>
+          <div class="check-butt-box" v-on:click="showw=false">完成</div>
+        </div>
+      </div>
+      <!--title-->
+      <div class="aa">提醒事项</div>
+      <!--数据绑定提示-->
+      <ul class="right-content" v-bind:class="younei.yanse">
+        <h2>{{younei.name}}<span class="che" v-on:click="showw=true">选项</span></h2>
+      <li v-for="(av, index) in guolv"><input type="text" v-model="av.content" v-on:blur="save()">
+      <div class="quan" v-on:click="av.fin=!av.fin;save()" v-bind:class="younei.yanse"></div><div class="rem" v-on:click="dell(index);save()">删除</div></li>
+        <div class="the-contline"></div>
+        <li v-for="(av, index) in guolvf"><input type="text" v-model="av.content" v-on:blur="save()" v-bind:class="av.yanse">
+        <div class="quan" v-on:click="av.fin=!av.fin;save()" v-bind:class="younei.yanse"></div><div class="rem" v-on:click="dell(index);save()">删除</div></li>
+      </ul>
+      <div class="tianjia" v-on:click="tianjia(younei.id);save()">添加</div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/index.js"></script>
