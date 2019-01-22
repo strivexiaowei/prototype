@@ -1,7 +1,7 @@
 # prototype
-网址链接
+网址链接 学习demo
 
-<https://huangxianweigit.github.io/prototype/04/
+<https://huangxianweigit.github.io/prototype/04/>
 
 <https://huangxianweigit.github.io/prototype/jq-TimePicker/>
 
