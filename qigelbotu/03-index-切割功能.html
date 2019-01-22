@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    div {
+      width: 560px;
+      height: 380px;
+      /*border: 1px solid #000;*/
+      margin: 100px auto;
+      position: relative;
+    }
+
+    ul {
+      width: 20%;
+      height: 100%;
+      position: relative;
+      /*perspective: 1000px;*/
+      transform-style: preserve-3d;
+      transform: rotateX(0deg);
+      float: left;
+    }
+
+    ul:nth-child(2) li {
+      background-position: -112px 0;
+    }
+
+    ul:nth-child(3) li {
+      background-position: -224px 0;
+    }
+
+    ul:nth-child(4) li {
+      background-position: -336px 0;
+    }
+
+    ul:nth-child(5) li {
+      background-position: -448px 0;
+    }
+    
+    li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /*第一个li*/
+    li:nth-child(1) {
+      background-image: url(images/01.jpg);
+      transform: translateZ(190px);
+    }
+
+    /*第二个li*/
+    li:nth-child(2) {
+      background-image: url(images/02.jpg);
+      transform: rotateX(90deg) translateZ(190px);
+    }
+
+    /*第三个li*/
+    li:nth-child(3) {
+      background-image: url(images/03.jpg);
+      transform: rotateX(180deg) translateZ(190px);
+    }
+
+    /*第四个li*/
+    li:nth-child(4) {
+      background-image: url(images/04.jpg);
+      transform: rotateX(270deg) translateZ(190px);
+    }
+
+    .prev,
+    .next {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: #f91;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      line-height: 100px;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .prev {
+      left: -100px;
+    }
+
+    .next {
+      right: -100px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <!--图片-->
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <!--箭头-->
+  <!--不能用伪元素： 伪元素不是元素，所以在js中，无法通过js来获取到这个元素。   -->
+  <a href="javascript:;" class="prev">上一页</a>
+  <a href="javascript:;" class="next">下一页</a>
+
+</div>
+
+<script>
+
+  //思路：
+  //1. 给左箭头注册点击事件
+  //2. 让ul沿着X转正的90deg
+  var prev = document.querySelector(".prev");
+  var next = document.querySelector(".next");
+  var uls = document.querySelectorAll("ul");
+
+  var flag = true;//表示此时是可以做动画的
+
+  //需要一个变量，来记录点击的次数
+  var count = 0;
+  prev.addEventListener("click", function () {
+
+
+    console.log(count)
+    if(flag) {
+      flag = false;
+      count++;
+      //遍历uls，给每一个ul都设置transform
+      for (var i = 0; i < uls.length; i++) {
+        //添加过渡
+        uls[i].style.transition = "all 1s " + 0.2 * i + "s";
+        //旋转
+        uls[i].style.transform = "rotateX(" + 90 * count + "deg)";
+      }
+
+    }
+
+
+
+  });
+
+  next.addEventListener("click", function () {
+    if (flag) {
+      flag = false;
+      count--;
+      //遍历uls，给每一个ul都设置transform
+      for (var i = 0; i < uls.length; i++) {
+        //添加过渡
+        uls[i].style.transition = "all 1s " + 0.2 * i + "s";
+        //旋转
+        uls[i].style.transform = "rotateX(" + 90 * count + "deg)";
+      }
+    }
+
+  });
+
+
+  //当最后一个ul的过渡结束的时候，把flag改成true即可。
+  //给最后一个ul注册transitionend事件
+  uls[uls.length - 1].addEventListener("transitionend", function () {
+    console.log("哈哈哈，哈哈哈");
+    flag = true;
+  });
+
+
+  //1. 写好静态页面， 四个li，  两个按钮（注意要用伪元素）
+  //2. 写js功能，    左箭头的时候，count++,让ul旋转的  90*count
+  //3. 切割：  ul的100%  ==》 20%   5个ul浮动    ==>需求每一个ul下的li的background-position
+  //4. js，给每一个ul都设置一个延迟
+  //5. 添加节流阀 动画结束的时候（transitionend），flag =true
+
+</script>
+
+</body>
+</html>
