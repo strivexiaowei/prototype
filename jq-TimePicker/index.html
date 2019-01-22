@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./jq_picker.css">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+.time-wrap {
+  position: relative;
+  width: 260px;
+  height: 40px;
+  margin-bottom: 50px;
+  border: 1px solid #ccc;
+  /* overflow: hidden; */
+}
+.time-input {
+  position: absolute;
+  padding: 0 16px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+.time-wrp {
+  position: relative;
+}
+</style>
+<body>
+ <div class="time-wrap">
+  <input class="time-input" type="text">
+ </div>
+ <div class="time-wrp">
+  <input class="haah" type="text">
+ </div>
+  <script src="./jquery-1.11.3.js"></script>
+  <script src="./jq_picker.js"></script>
+  <script>
+    new Picker('.time-input',{
+      year: 2018,
+      yearRange: [2000, 2018],
+      monthList: [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ],
+      quarterList: [
+        '第一季度',
+        '第二季度',
+        '第三季度',
+        '第四季度'
+      ]
+    })
+    new Picker('.haah',{
+      year: 2018,
+      yearRange: [2000, 2018],
+      monthList: [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ],
+      quarterList: [
+        '第一季度',
+        '第二季度',
+        '第三季度',
+        '第四季度'
+      ]
+    })
+  </script>
+</body>
+
+</html>

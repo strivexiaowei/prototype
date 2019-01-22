@@ -1,0 +1,257 @@
+.show {
+  display: block !important;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.clearfix::after,
+.clearfix::before {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.wg-picker {
+  position: absolute;
+  padding: 14px;
+  left: 0;
+  width: 350px;
+  height: auto;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: #fff;
+  z-index: 99;
+  display: none;
+}
+
+.wg-input-wrap {
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+
+.wg-input-wrap::after {
+  position: absolute;
+  height: 0;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 6px solid transparent;
+  border-top: 6px solid #5ea4e0;
+  content: '';
+  z-index: 999;
+}
+
+.wg-input {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #5ea4e0;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f1f6fc;
+}
+
+.wg-input-wrap .year-wrap {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 250px;
+  top: 36px;
+  left: 0;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.wg-input-wrap .year-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.wg-input-wrap .year-list li {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #5ea4e0;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wg-input-wrap .year-list li:hover,
+.wg-input-wrap .year-list li.active {
+  background-color: #f1f6fc;
+}
+
+.wg-body {
+  padding-top: 10px;
+  width: 100%;
+  height: auto;
+
+}
+
+.wg-nav {
+  width: 100%;
+  height: 40px;
+  display: flex;
+}
+
+.wg-nav span {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9facb5;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.wg-nav span.active {
+  color: #5ea4e0;
+  background-color: #f1f6fc;
+}
+
+.wg-month-wrap {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  background-color: #f1f6fc;
+  display: none;
+}
+
+.wg-quarter-wrap {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  background-color: #f1f6fc;
+  display: none;
+}
+
+.wg-month-wrap span {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 68px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9facb5;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.wg-month-wrap span:nth-child(4n) {
+  margin-right: 0;
+}
+
+.wg-quarter-wrap span {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 146px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9facb5;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.wg-quarter-wrap span:nth-child(2n) {
+  margin-right: 0;
+}
+
+.wg-quarter-wrap span.active {
+  color: #fff;
+  background-color: #5ea4e0;
+}
+
+.wg-month-wrap span.active {
+  color: #fff;
+  background-color: #5ea4e0;
+}
+
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+
+.wg-footer-wrap {
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+.wg-footer {
+  width: 100%;
+  height: auto;
+  text-align: right;
+  background-color: #f1f6fc;
+}
+
+.wg-footer .tishi {
+  font-size: 14px;
+  font-weight: bold;
+  color: #9facb5;
+  display: none;
+}
+
+.wg-footer .reset,
+.wg-footer .confirm {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  outline: none;
+  width: 68px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9facb5;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.wg-footer .reset:active,
+.wg-footer .confirm:active,
+.wg-footer .reset:hover,
+.wg-footer .confirm:hover {
+  color: #fff;
+  background-color: #5ea4e0;
+}
+
+.wg-footer .confirm {
+  margin-right: 10px;
+}
